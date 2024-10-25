@@ -1,0 +1,30 @@
+{
+  "template": "https://github.com/scverse/cookiecutter-scverse",
+  "commit": "a900ad87dc636b043c8aa03ec8454f0a1dcd3a65",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "bulkpy",
+      "package_name": "bulkpy",
+      "project_description": "Helpers to work with bulk omics data using the scverse",
+      "author_full_name": "Vito Zanotelli",
+      "author_email": "vito.zanotelli@kispi.uzh.ch",
+      "github_user": "votti",
+      "github_repo": "bulkpy",
+      "license": "MIT License",
+      "ide_integration": true,
+      "_copy_without_render": [
+        ".github/workflows/build.yaml",
+        ".github/workflows/test.yaml",
+        "docs/_templates/autosummary/**.rst"
+      ],
+      "_render_devdocs": false,
+      "_jinja2_env_vars": {
+        "lstrip_blocks": true,
+        "trim_blocks": true
+      },
+      "_template": "https://github.com/scverse/cookiecutter-scverse"
+    }
+  },
+  "directory": null
+}
