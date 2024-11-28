@@ -14,15 +14,15 @@ def _read_h5ad_elems(
     elems: list[str],
     mode="r",
 ) -> list[Any]:
-    """Read multiple elements from a h5ad file
+    """Read multiple elements from a h5ad file.
 
     Args:
-        fn (str): a file name
-        mode (str, optional): a mode to open the file. Defaults to "r".
+        fn (str | bytes | os.PathLike): A file name.
+        elems (list[str]): A list of elements to read.
+        mode (str, optional): A mode to open the file. Defaults to "r".
 
-    Returns
-    -------
-        list[any]: an element read from the file
+    Returns:
+        list[Any]: A list of elements read from the file.
     """
     with h5py.File(fn, mode) as f:
         return [read_elem(f[elem]) for elem in elems]
@@ -36,15 +36,18 @@ def _read_h5ad_layers(
     x_transform: Callable[[np.array], np.array] | None = None,
     drop_raw=True,
 ) -> md.AnnData:
-    """Read only a subset of layers from a h5ad file
+    """Read only a subset of layers from a h5ad file.
 
     Args:
-        fn (str): a file name
-        mode (str, optional): a mode to open the file. Defaults to "r".
+        fn (str | bytes | os.PathLike): A file name.
+        mod (str): The modality to read.
+        layers (Iterable[str] | None, optional): A list of layers to read. Defaults to None.
+        x_layer (None | str, optional): The layer to use as X. Defaults to None.
+        x_transform (Callable[[np.array], np.array] | None, optional): A function to transform X. Defaults to None.
+        drop_raw (bool, optional): Whether to drop the raw attribute. Defaults to True.
 
-    Returns
-    -------
-        list[md.MuData]: a layer read from the file
+    Returns:
+        md.AnnData: An AnnData object containing the specified layers.
     """
     if layers is None:
         ad_memory = md.read_h5ad(fn, mod=mod)
@@ -98,14 +101,15 @@ def read_h5mu_subset(
     elements=("obs", "var", "uns"),
     ad_spec: dict[str, dict[str, Any]] | None = None,
 ) -> md.MuData:
-    """Read a MuData object from a h5mu file
+    """Read a subset of a MuData object from a h5mu file.
 
     Args:
-        fn (str): a file name
-        mode (str, optional): a mode to open the file. Defaults to "r".
+        fn (str | bytes | os.PathLike): a file name
+        mods (list[str] | None, optional): a list of modalities to read. Defaults to None.
+        elements (tuple, optional): a tuple of elements to read. Defaults to ("obs", "var", "uns").
+        ad_spec (dict[str, dict[str, Any]] | None, optional): a dictionary specifying additional arguments for each modality. Defaults to None.
 
-    Returns
-    -------
+    Returns:
         md.MuData: a MuData object
     """
     if ad_spec is None:
