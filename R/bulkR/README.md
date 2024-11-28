@@ -1,4 +1,3 @@
-
 # bulkR
 
 <!-- badges: start -->
@@ -11,7 +10,7 @@ omics analyses
 
 You can install the development version of bulkR like so:
 
-``` ri
+```ri
 library(devtools)
 install_github("FroeseLab/bulkR")
 
@@ -21,8 +20,7 @@ install_github("FroeseLab/bulkR")
 
 This is a basic example which shows you how to solve a common problem:
 
-``` r
+```r
 library(bulkR)
 ## basic example code
 ```
-
