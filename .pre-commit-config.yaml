@@ -11,11 +11,11 @@ repos:
     hooks:
       - id: prettier
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: "v2.4.3"
+    rev: "v2.5.0"
     hooks:
       - id: pyproject-fmt
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.7.1
+    rev: v0.8.0
     hooks:
       - id: ruff
         types_or: [python, pyi, jupyter]
@@ -44,3 +44,19 @@ repos:
           Fix the merge conflicts manually and remove the .rej files.
         language: fail
         files: '.*\.rej$'
+  - repo: https://github.com/lorenzwalthert/precommit
+    rev: v0.4.1
+    hooks:
+      - id: style-files
+        args: [--style_pkg=styler, --style_fun=tidyverse_style]
+      - id: parsable-R
+      - id: no-browser-statement
+      - id: no-debug-statement
+      - id: lintr
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb=200]
+      - id: end-of-file-fixer
+        exclude: \.Rd
