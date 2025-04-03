@@ -21,8 +21,6 @@ repos:
       - id: ruff
         types_or: [python, pyi, jupyter]
         args: [--fix, --exit-non-zero-on-fix]
-      - id: ruff-format
-        types_or: [python, pyi, jupyter]
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
@@ -45,3 +43,19 @@ repos:
           Fix the merge conflicts manually and remove the .rej files.
         language: fail
         files: '.*\.rej$'
+  - repo: https://github.com/lorenzwalthert/precommit
+    rev: v0.4.1
+    hooks:
+      - id: style-files
+        args: [--style_pkg=styler, --style_fun=tidyverse_style]
+      - id: parsable-R
+      - id: no-browser-statement
+      - id: no-debug-statement
+      - id: lintr
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb=200]
+      - id: end-of-file-fixer
+        exclude: \.Rd
