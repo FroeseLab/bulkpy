@@ -1,1 +1,1 @@
-from .loader import read_h5mu_subset
+from ._loader import read_h5mu_subset

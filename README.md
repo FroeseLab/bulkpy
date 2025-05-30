@@ -34,13 +34,19 @@ pip install bulkpy
 pip install git+https://github.com/votti/bulkpy.git@main
 ```
 
+## Concept
+
+This library supports the use of `mudata` for bulk multi-omics datasets.
+Here it mainly contains functions to suppor working across the omic layers.
+It comes with the `bulkR` companion R package that is a thin wrapper based on `reticulate`.
+Application logic should stay in `bulkpy`.
+
 ## Release notes
 
 See the [changelog][].
 
 ## Contact
 
-For questions and help requests, you can reach out in the [scverse discourse][].
 If you found a bug, please use the [issue tracker][].
 
 ## Citation
